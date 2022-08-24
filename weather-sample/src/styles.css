@@ -1,0 +1,109 @@
+@import "~bootstrap/dist/css/bootstrap.css"; 
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+
+.wc1 {
+    text-align: center;
+    border-right: 1px solid #eee;
+    padding: 0px;
+}
+.wr1 {    
+    text-align: center;
+    padding: 0px;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 0.5rem !important;
+}
+.wrh {
+    border-bottom: 1px solid #eee;
+    padding-bottom: 15px;
+    margin-bottom: 0px !important;
+    margin-top: 0.5rem !important;
+    padding-left: 20px;
+    padding-top: 15px;
+}
+.colrGry {
+    color: #969696;
+}
+.colBlu {
+    color: skyblue;
+}
+.font15 {
+    font-size: 15px;
+}
+.padTop25 {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.padTop15 {
+    padding-top: 25px;
+}
+.srhbar {
+    display: inline-block;
+    width:100%;
+}
+.pad00 {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+.imgWidth {
+    width: 70%;
+}
+.mat-tab-label .mat-tab-label-content {
+    font-size: 16px;
+}
+.pad2515 {
+    padding-top: 25px;
+}
+.mainDiv {
+    border: 1px solid #ddd;
+    background-color: blue;
+    padding-top: 5px;
+}
+.subDiv {
+    background: #fff;
+    margin: 9px 0px 0px 0px;
+}
+.ng-autocomplete {
+    width: 100% !important;
+}
+.autocomplete-container .input-container input {
+    font-size: 16px !important;
+    line-height: 40px;
+    height: 50px !important;
+    cursor:pointer !important;
+    border: 1px solid blue !important;
+}
+.autocomplete-container .input-container .x i {
+    color: #000 !important;
+    cursor:pointer !important;
+}
+.mat-tab-group.mat-primary .mat-ink-bar, .mat-tab-nav-bar.mat-primary .mat-ink-bar {
+    background-color: red !important;
+}
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: #ddd;
+    opacity: 1; /* Firefox */
+  }
+  
+  :-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: #ddd;
+  }
+  
+  ::-ms-input-placeholder { /* Microsoft Edge */
+    color: #ddd;
+  }
+  .mat-elevation-z4 {
+    box-shadow: none !important;
+  }
+  .blueBg {
+    color: #fff;
+    background: blue;
+  }
+  .mat-tab-group {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+.mat-tab-label {
+    min-width: 120px !important;
+    padding: 0 10px !important;
+}
+  

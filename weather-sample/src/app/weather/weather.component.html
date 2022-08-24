@@ -1,0 +1,160 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+            <div class="row">
+                <div class="col-md-12 blueBg">
+                    <h3 class="my-4">Simple Weather</h3>
+                </div>
+                <div class="col-md-12 pad00">
+                
+                  <form>
+                    <div class="form-group">
+                        <span class="srhbar">
+
+                            <div class="ng-autocomplete">
+                                <ng-autocomplete
+                                  [data]="slicedArray"
+                                  [searchKeyword]="keyword"
+                                  placeholder="Enter the city name"
+                                  (selected)='selectCity($event)'
+                                  (inputChanged)='onChangeSearch($event)'
+                                  historyIdentifier="no"
+                                  historyHeading="Recent searches"
+                                  [itemTemplate]="itemTemplate"
+                                  [notFoundTemplate]="notFoundTemplate">
+                                </ng-autocomplete>
+                              
+                                <ng-template #itemTemplate let-item>
+                                  <a [innerHTML]="item.city_name"></a>
+                                </ng-template>
+                              
+                                <ng-template #notFoundTemplate let-notFound>
+                                  <div [innerHTML]="notFound"></div>
+                                </ng-template>
+                              </div>
+                        </span> 
+                    </div>
+                </form>
+                </div>
+            </div>
+            <div class="row pad2515" *ngIf="tabsDisplay === true">
+                <mat-tab-group (selectedTabChange)="OnTabEvent($event)">
+                    <mat-tab label="RIO DE JANEIRO"></mat-tab>
+                    <mat-tab label="BEIJING"></mat-tab>
+                    <mat-tab label="LOS ANGELES"></mat-tab>
+                  </mat-tab-group>
+            </div>
+            <div class="row mainDiv">
+                <div class="col-md-12">
+                   <div class="row">
+                    <div class="col-md-12">
+                        <div class="subDiv">
+                        <h4 class="my-4 wrh">Next hours</h4> 
+                        <div class="row padTop15">
+                           <div class="col wc1">
+                                <div> {{this.weatherData.hourly[0].temp | number : '1.0-0'}}<span>&deg;</span></div>
+                                <div class="colBlu"> {{this.weatherData.hourly[0].clouds}}%</div>
+                                <div> <img class="imgWidth" src="http://openweathermap.org/img/wn/{{this.weatherData.hourly[0].weather[0].icon}}@2x.png" alt="img"/></div>
+                                <div class="colrGry"> {{utility.getHours(this.weatherData.hourly[0].dt)}}</div>
+                           </div>
+                           <div class="col wc1">
+                                <div> {{this.weatherData.hourly[1].temp | number : '1.0-0'}}<span>&deg;</span></div>
+                                <div class="colBlu"> {{this.weatherData.hourly[1].clouds}}%</div>
+                                <div> <img class="imgWidth"src="http://openweathermap.org/img/wn/{{this.weatherData.hourly[1].weather[0].icon}}@2x.png" alt="img"/></div>
+                                <div class="colrGry"> {{utility.getHours(this.weatherData.hourly[1].dt)}}</div>
+                           </div>
+                           <div class="col wc1">
+                                <div> {{this.weatherData.hourly[2].temp | number : '1.0-0'}}<span>&deg;</span></div>
+                                <div class="colBlu"> {{this.weatherData.hourly[2].clouds}}%</div>
+                                <div> <img class="imgWidth" src="http://openweathermap.org/img/wn/{{this.weatherData.hourly[2].weather[0].icon}}@2x.png" alt="img"/></div>
+                                <div class="colrGry"> {{utility.getHours(this.weatherData.hourly[2].dt)}}</div>
+                             </div>
+                             <div class="col wc1">
+                                <div> {{this.weatherData.hourly[3].temp | number : '1.0-0'}}<span>&deg;</span></div>
+                                <div class="colBlu"> {{this.weatherData.hourly[3].clouds}}%</div>
+                                <div> <img class="imgWidth" src="http://openweathermap.org/img/wn/{{this.weatherData.hourly[3].weather[0].icon}}@2x.png" alt="img"/></div>
+                                <div class="colrGry"> {{utility.getHours(this.weatherData.hourly[3].dt)}}</div>
+                            </div>
+                        </div>
+                     </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="subDiv">
+                        <h4 class="my-4 wrh">Next 5 days</h4>
+                        <div class="row wr1">
+                            <div class="col-3">
+                                <div> <img class="imgWidth" src="http://openweathermap.org/img/wn/{{this.weatherData.daily[0].weather[0].icon}}@2x.png" alt="img"/></div>
+                            </div>
+                            <div class="col-6 padTop25">
+                                <div><span>{{utility.getDay(this.weatherData.daily[0].dt)}}</span><span></span></div>
+                                <div class="colrGry font15">{{this.weatherData.daily[0].weather[0].description}}</div>
+                            </div>
+                            <div class="col-3 padTop25">
+                                <span> {{this.weatherData.daily[0].temp.max | number : '1.0-0'}}</span> <span>&deg;</span> <span> {{this.weatherData.daily[0].temp.min | number : '1.0-0'}}</span><span>&deg;</span>
+                            </div>
+                        </div>
+                        <div class="row wr1">
+                            <div class="col-3">
+                                <div> <img class="imgWidth" src="http://openweathermap.org/img/wn/{{this.weatherData.daily[1].weather[0].icon}}@2x.png" alt="img"/></div>
+                            </div>
+                            <div class="col-6 padTop25">
+                                <div><span>{{utility.getDay(this.weatherData.daily[1].dt)}}</span><span></span></div>
+                                <div class="colrGry font15">{{this.weatherData.daily[1].weather[0].description}}</div>
+                            </div>
+                            <div class="col-3 padTop25">
+                                <span> {{this.weatherData.daily[1].temp.max | number : '1.0-0'}}</span> <span>&deg;</span> <span> {{this.weatherData.daily[1].temp.min | number : '1.0-0'}}</span><span>&deg;</span>
+                            </div>
+                        </div>
+                        <div class="row wr1">
+                            <div class="col-3">
+                                <div> <img class="imgWidth" src="http://openweathermap.org/img/wn/{{this.weatherData.daily[2].weather[0].icon}}@2x.png" alt="img"/></div>
+                            </div>
+                            <div class="col-6 padTop25">
+                                <div><span>{{utility.getDay(this.weatherData.daily[2].dt)}}</span><span></span></div>
+                                <div class="colrGry font15">{{this.weatherData.daily[2].weather[0].description}}</div>
+                            </div>
+                            <div class="col-3 padTop25">
+                                <span> {{this.weatherData.daily[2].temp.max | number : '1.0-0'}}</span> <span>&deg;</span> <span> {{this.weatherData.daily[2].temp.min | number : '1.0-0'}}</span><span>&deg;</span>
+                            </div>
+                        </div>
+                        <div class="row wr1">
+                            <div class="col-3">
+                                <div> <img class="imgWidth" src="http://openweathermap.org/img/wn/{{this.weatherData.daily[3].weather[0].icon}}@2x.png" alt="img"/></div>
+                            </div>
+                            <div class="col-6 padTop25">
+                                <div><span>{{utility.getDay(this.weatherData.daily[3].dt)}}</span><span></span></div>
+                                <div class="colrGry font15">{{this.weatherData.daily[3].weather[0].description}}</div>
+                            </div>
+                            <div class="col-3 padTop25">
+                                <span> {{this.weatherData.daily[3].temp.max | number : '1.0-0'}}</span> <span>&deg;</span> <span> {{this.weatherData.daily[3].temp.min | number : '1.0-0'}}</span><span>&deg;</span>
+                            </div>
+                        </div>
+                        <div class="row wr1">
+                            <div class="col-3">
+                                <div> <img class="imgWidth" src="http://openweathermap.org/img/wn/{{this.weatherData.daily[4].weather[0].icon}}@2x.png" alt="img"/></div>
+                            </div>
+                            <div class="col-6 padTop25">
+                                <div><span>{{utility.getDay(this.weatherData.daily[4].dt)}}</span><span></span></div>
+                                <div class="colrGry font15">{{this.weatherData.daily[4].weather[0].description}}</div>
+                            </div>
+                            <div class="col-3 padTop25">
+                                <span> {{this.weatherData.daily[4].temp.max | number : '1.0-0'}}</span> <span>&deg;</span> <span> {{this.weatherData.daily[4].temp.min | number : '1.0-0'}}</span><span>&deg;</span>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                   </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4"></div>
+    </div>
+  </div>
+  <ngx-spinner
+  bdColor = "rgba(51, 51, 51, 0.8)"
+  size = "large"
+  color = "#934d4d"
+  [fullScreen]="false"
+  type = "ball-8bits">
+ </ngx-spinner>
